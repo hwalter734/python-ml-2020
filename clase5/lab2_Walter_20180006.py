@@ -99,3 +99,24 @@ def rota270_otro_lado(matriz):
 print(rota270_otro_lado(A))
 
 #Problema 4
+#x, a, b, y, z, c, t, d
+t = np.array([
+    [2, 1, 0, 0, 0, 0, 0, 0],
+    [1, 1, 0, 0, 0, 0, 0, 0],
+    [-1, 2, 0, 0, 0, 0, 0, 0],
+    [0, 0, 2, 1, 0, 0, 0, 0],
+    [0, 0, 1, 1, 0, 0, 0, 0],
+    [0, 0, -1, 2, 0, 0, 0, 0],
+    [0, 0, 0, 0, 2, 1, 0, 0],
+    [0, 0, 0, 0, 1, 1, 0, 0],
+    [0, 0, 0, 0, -1, 2, 0, 0],
+    [0, 0, 0, 0, 0, 0, 2, 1],
+    [0, 0, 0, 0, 0, 0, 1, 1],
+    [0, 0, 0, 0, 0, 0, -1, 2]
+])
+z = np.array([[4],[3],[3],[3],[2],[1],[6],[4],[2],[-3],[-1],[4]])
+
+resultado = np.linalg.lstsq(t, z)
+print(resultado)
+resultado_correcto = np.allclose(np.dot(t, z), resultado)
+print(resultado_correcto)
