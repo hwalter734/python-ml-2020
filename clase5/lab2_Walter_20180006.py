@@ -6,7 +6,7 @@ M = np.array([
     [0, 1, 1, 0, 0, 1, 0],
     [0, 0, 1, 1, 0, 0, 0],
     [0, 0, 0, 1, 1, 0, 1],
-    [1, 0, 0, 0, 1, 1, 1],
+    [1, 0, 0, 0, 0, 1, 1],
     [0, 0, 0, 0, 1, 1, 1],
     [1, 1, 1, 0, 0, 0, 1]
 ])
@@ -70,26 +70,32 @@ print(H)
 
 
 #Problema 3
-matriz = np.array([
-    [1, 2, 3],
-    [4, 5, 6]
-])
+A = np.arange(0,24,1).reshape(4,6)
+print(A)
 
 def rota90(matriz):
-    return matriz
-# def rota180(self, matriz):
-#     return None
-# def rota270(self, matriz):
-#     return None
-# def rota90_otro_lado(self, matriz):
-#     return matriz.transpose()
-# def rota180_otro_lado(self, matriz):
-#     return matriz.transpose()
-# def rota270_otro_lado(self, matriz):
-#     return None
+    return np.transpose(np.fliplr(matriz))
+print(rota90(A))
+
+def rota180(matriz):
+    return np.flip(np.transpose(rota90(matriz)),0)
+print(rota180(A))
+
+def rota270(matriz):
+    return np.flip(np.transpose(rota180(matriz)),0)
+print(rota270(A))
 
 
+def rota90_otro_lado(matriz):
+    return np.fliplr(np.transpose(matriz))
+print(rota90_otro_lado(A))
 
+def rota180_otro_lado(matriz):
+    return np.transpose(np.fliplr(np.transpose(matriz)))
+print(rota180_otro_lado(A))
 
+def rota270_otro_lado(matriz):
+    return np.fliplr(np.transpose(np.transpose(np.fliplr(np.transpose(matriz)))))
+print(rota270_otro_lado(A))
 
 #Problema 4
