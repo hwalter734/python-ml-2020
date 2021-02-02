@@ -1,24 +1,25 @@
 import numpy as np
 
 #Problema 1
-# M = np.array([
-#     [1, 1, 0, 0, 0, 0, 1],
-#     [0, 1, 1, 0, 0, 1, 0],
-#     [0, 0, 1, 1, 0, 0, 0],
-#     [0, 0, 0, 1, 1, 0, 1],
-#     [1, 0, 0, 0, 1, 1, 1],
-#     [1, 1, 1, 0, 0, 0, 1]
-# ])
+M = np.array([
+    [1, 1, 0, 0, 0, 0, 1],
+    [0, 1, 1, 0, 0, 1, 0],
+    [0, 0, 1, 1, 0, 0, 0],
+    [0, 0, 0, 1, 1, 0, 1],
+    [1, 0, 0, 0, 1, 1, 1],
+    [0, 0, 0, 0, 1, 1, 1],
+    [1, 1, 1, 0, 0, 0, 1]
+])
 
-# M1 = np.array([
-#     [1, 1, 0, 0, 0, 1, 1],
-#     [1, 1, 1, 0, 1, 0, 0],
-#     [0, 1, 1, 1, 1, 0, 0],
-#     [0, 0, 1, 1, 0, 0, 1],
-#     [0, 1, 1, 0, 1, 1, 1],
-#     [1, 0, 0, 0, 1, 1, 1],
-#     [1, 0, 0, 1, 1, 1, 1]
-# ])
+M1 = np.array([
+    [1, 1, 0, 0, 0, 1, 1],
+    [1, 1, 1, 0, 1, 0, 0],
+    [0, 1, 1, 1, 1, 0, 0],
+    [0, 0, 1, 1, 0, 0, 1],
+    [0, 1, 1, 0, 1, 1, 1],
+    [1, 0, 0, 0, 1, 1, 1],
+    [1, 0, 0, 1, 1, 1, 1]
+])
 
 M2 = np.array([
     [1, 1, 0, 0, 0, 0, 0],
@@ -29,6 +30,26 @@ M2 = np.array([
     [0, 0, 0, 0, 1, 1, 1],
     [0, 0, 0, 0, 1, 1, 1]
 ])
+
+def es_reflexiva(x):
+    return np.diagonal(x).sum() == x.shape[0]
+print(es_reflexiva(M))
+print(es_reflexiva(M1))
+print(es_reflexiva(M2))
+
+def es_simetrica(x):
+    return (np.transpose(x) == x).all()
+print(es_simetrica(M))
+print(es_simetrica(M1))
+print(es_simetrica(M2))
+
+def es_transitiva(x):
+    x2 = x@x
+    return (x2 <= x).all()
+print(es_transitiva(M))
+print(es_transitiva(M1))
+print(es_transitiva(M2))
+
 
 
 #Problema 2
@@ -48,10 +69,14 @@ print(H)
 
 
 
-# #Problema 3
-# A = np.arange(0,24).reshape((4,5))
-# def rota90(self, matriz):
-#     return None
+#Problema 3
+matriz = np.array([
+    [1, 2, 3],
+    [4, 5, 6]
+])
+
+def rota90(matriz):
+    return matriz
 # def rota180(self, matriz):
 #     return None
 # def rota270(self, matriz):
